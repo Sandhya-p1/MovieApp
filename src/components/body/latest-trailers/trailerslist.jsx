@@ -1,4 +1,4 @@
-import MoreIcon from "@/components/ui/moreicon";
+import MoreIcon from "@/components/body/card-template/moreicon";
 import Typography from "@/components/ui/typography";
 import { Play } from "lucide-react";
 import React from "react";

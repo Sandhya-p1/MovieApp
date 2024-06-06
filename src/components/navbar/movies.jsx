@@ -4,9 +4,9 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../../ui/dropdown-menu";
+} from "../ui/dropdown-menu";
 
-function MoviesList() {
+function Movies() {
   return (
     <>
       <DropdownMenu>
@@ -24,4 +24,4 @@ function MoviesList() {
   );
 }
 
-export default MoviesList;
+export default Movies;
