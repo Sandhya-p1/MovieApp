@@ -1,51 +1,32 @@
 import React from "react";
-import CardTemplate from "./movies-collection/moviescollection";
+
+import { useQuery } from "@tanstack/react-query";
+import { tmdb } from "@/assets/config/tmdb-client";
+import { Loader2 } from "lucide-react";
+import MoviesCollection from "./movies-collection/moviescollection";
 
 export default function Popular() {
   const title = {
     headings: "Popular",
     children: null,
   };
-  const movies = [
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-    {
-      src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFhqGQe10fJ7wqKelULN9HnbHpbPIdJGaeFg&s",
-      movieName: "Movie1",
-      desc: "description",
-    },
-  ];
+  const { data: movies, isLoading } = useQuery({
+    queryKey: ["popularMovies"],
+    queryFn: async () => tmdb.get("/movie/popular").then((res) => res.data),
+  });
+  console.log(movies);
+  if (isLoading) {
+    return (
+      <h1 className="flex items-center gap-x-2 text-xl px-4 py-2">
+        <Loader2 className="animate-spin" />
+        Loading
+      </h1>
+    );
+  }
+
   return (
     <div>
-      <CardTemplate title={title} movies={movies} />
+      <MoviesCollection title={title} movies={movies.results} />
     </div>
   );
 }

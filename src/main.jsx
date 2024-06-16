@@ -8,6 +8,7 @@ import FavouritesPage from "./pages/FavouritePage";
 import HomePage from "./pages/HomePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { MoviePage } from "./components/body/movies-collection/moviecard";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/favourites",
         element: <FavouritesPage />,
+      },
+      {
+        path: "/movie/:id",
+        element: <MoviePage />,
       },
     ],
   },
