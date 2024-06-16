@@ -1,12 +1,14 @@
-import Body from "./components/body/body";
+import { Outlet } from "react-router-dom";
 
 import Navbar from "./components/navbar/navbar";
+import Footer from "./components/body/footer";
 
 function App() {
   return (
-    <div className="h-screen overflow-scroll w-screen no-scrollbar bg-gray-100 ">
+    <div className="h-full overflow-scroll w-screen no-scrollbar bg-gray-100 ">
       <Navbar />
-      <Body />
+      <Outlet />
+      <Footer />
     </div>
   );
 }

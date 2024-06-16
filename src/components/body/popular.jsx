@@ -1,5 +1,5 @@
 import React from "react";
-import CardTemplate from "./card-template/cardtemplate";
+import CardTemplate from "./movies-collection/moviescollection";
 
 export default function Popular() {
   const title = {
