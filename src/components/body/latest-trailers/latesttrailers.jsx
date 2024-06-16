@@ -1,15 +1,13 @@
 import Typography from "@/components/ui/typography";
 import React from "react";
 import TrailersList from "./trailerslist";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function LatestTrailers() {
   return (
-    <div className="h-96 relative overflow-y-hidden no-scrollbar w-full rounded-sm  bg-zinc-900 bg-opacity-100">
-      <img
-        src="https://c.ndtvimg.com/2024-04/rskpmkvg_vicky-_625x300_15_April_24.jpeg"
-        className="object-fill object-center  w-full h-full opacity-5"
-      />
-      <div className="p-7 absolute top-0  h-full text-white">
+    <div className="h-96 bg-latestTrailers relative w-full  rounded-sm  bg-zinc-900 bg-opacity-100">
+      <div className="absolute z-20 h-full top-0 right-0 w-20 bg-whiteGradient" />
+      <div className="p-7 z-0 w-full h-full text-white">
         {/* heading */}
 
         <div className="flex items-center gap-x-4">
@@ -25,7 +23,7 @@ export default function LatestTrailers() {
         </div>
 
         {/* movies list */}
-        <div className="flex items-center gap-x-4  overflow-x-scroll no-scrollbar w-full">
+        <div className="flex relative items-center max-w-full no-scrollbar overflow-x-auto gap-x-4">
           <TrailersList />
           <TrailersList />
           <TrailersList />

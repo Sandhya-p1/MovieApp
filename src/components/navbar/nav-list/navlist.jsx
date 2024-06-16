@@ -3,7 +3,7 @@ import React from "react";
 import Serials from "./serials";
 import People from "./people";
 import Next from "./next";
-import Movies from "../movies";
+import Movies from "./movies";
 
 export default function NavList() {
   return (

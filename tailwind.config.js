@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -17,6 +17,11 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        latestTrailers:
+          "linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(https://c.ndtvimg.com/2024-04/rskpmkvg_vicky-_625x300_15_April_24.jpeg)",
+        whiteGradient: "linear-gradient(90deg,#ffffff00, #fff)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -74,4 +79,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

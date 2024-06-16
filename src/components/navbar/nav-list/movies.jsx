@@ -4,7 +4,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
+} from "../../ui/dropdown-menu";
+import { Link } from "react-router-dom";
 
 function Movies() {
   return (
@@ -14,7 +15,9 @@ function Movies() {
           Movies
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Favourites</DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link to="/favourites"> Favourites</Link>
+          </DropdownMenuItem>
           <DropdownMenuItem>It's playing now</DropdownMenuItem>
           <DropdownMenuItem>Coming</DropdownMenuItem>
           <DropdownMenuItem>Top Rated</DropdownMenuItem>

@@ -5,7 +5,7 @@ import React from "react";
 
 export default function TrailersList() {
   return (
-    <div className="w-[300px] text-white  h-fit mt-4   rounded-xl text-center relative">
+    <div className="min-w-[300px] text-white  h-fit mt-4 rounded-xl text-center relative">
       <img
         src="https://i.ytimg.com/vi/xwKhpcCY798/maxresdefault.jpg"
         className="rounded-xl object-cover h-full w-full "

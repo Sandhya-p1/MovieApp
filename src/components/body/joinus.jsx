@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "../ui/typography";
-import { Button } from "../ui/button";
 
 export default function JoinUs() {
   return (

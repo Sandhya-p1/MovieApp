@@ -4,7 +4,7 @@ import Navbar from "./components/navbar/navbar";
 
 function App() {
   return (
-    <div className="h-screen overflow-scroll w-screen no-scrollbar bg-gray-100 pb-8">
+    <div className="h-screen overflow-scroll w-screen no-scrollbar bg-gray-100 ">
       <Navbar />
       <Body />
     </div>
