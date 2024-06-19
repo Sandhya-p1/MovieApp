@@ -6,7 +6,7 @@ import { tmdb } from "@/assets/config/tmdb-client";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useNavigate, useParams } from "react-router-dom";
 
-const IMG_BASE = "https://media.themoviedb.org/t/p/w220_and_h330_face";
+export const IMG_BASE = "https://media.themoviedb.org/t/p/w220_and_h330_face";
 
 export const useMovieQuery = (id) =>
   useQuery({
@@ -14,18 +14,9 @@ export const useMovieQuery = (id) =>
     queryFn: async () => tmdb.get(`/movie/${id}`).then((res) => res.data),
   });
 
-export default function MovieCard({ id }) {
-  const { data: movie, isLoading, error } = useMovieQuery(id);
+export default function MovieCard({ movie }) {
   const navigate = useNavigate();
-  if (error) return null;
-  if (isLoading) {
-    return (
-      <div>
-        <Skeleton className="h-[12rem] w-[120px] rounded-md bg-foreground/20 mb-4" />
-        <Skeleton className="h-8 w-20 bg-foreground/20" />
-      </div>
-    );
-  }
+
   if (!movie || !movie.poster_path) return null;
   return (
     <div
@@ -34,7 +25,7 @@ export default function MovieCard({ id }) {
     >
       <img
         src={IMG_BASE + movie.poster_path}
-        className="object-cover rounded-xl w-full mb-2"
+        className="object-cover rounded-xl w-full mb-2 shadow-md"
       />
       <MoreIcon />
       <div>

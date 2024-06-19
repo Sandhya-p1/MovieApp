@@ -6,10 +6,6 @@ import { Loader2 } from "lucide-react";
 import MoviesCollection from "./movies-collection/moviescollection";
 
 export default function Popular() {
-  const title = {
-    headings: "Popular",
-    children: null,
-  };
   const { data: movies, isLoading } = useQuery({
     queryKey: ["popularMovies"],
     queryFn: async () => tmdb.get("/movie/popular").then((res) => res.data),
@@ -26,7 +22,7 @@ export default function Popular() {
 
   return (
     <div>
-      <MoviesCollection title={title} movies={movies.results} />
+      <MoviesCollection title="Popular" movies={movies.results} />
     </div>
   );
 }

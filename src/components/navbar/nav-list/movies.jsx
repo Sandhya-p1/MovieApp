@@ -16,7 +16,7 @@ function Movies() {
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <Link to="/favourites"> Favourites</Link>
+            <Link to="/moviespopular"> Popular</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>It's playing now</DropdownMenuItem>
           <DropdownMenuItem>Coming</DropdownMenuItem>

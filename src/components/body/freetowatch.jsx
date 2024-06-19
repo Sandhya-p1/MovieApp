@@ -6,14 +6,9 @@ import { Loader2 } from "lucide-react";
 import MoviesCollection from "./movies-collection/moviescollection";
 
 export default function FreeToWatch() {
-  const title = {
-    headings: "Free To Watch",
-    children: null,
-  };
-
   const { data: movies, isLoading } = useQuery({
     queryKey: ["movies"],
-    queryFn: async () => tmdb.get("/genre/movie/list").then((res) => res.data),
+    queryFn: async () => tmdb.get("/movie/now_playing").then((res) => res.data),
     refetchInterval: 60 * 60 * 1000,
   });
   console.log(movies);
@@ -26,7 +21,7 @@ export default function FreeToWatch() {
     );
   return (
     <div>
-      <MoviesCollection title={title} movies={movies.genres} />
+      <MoviesCollection title="Now Playing" movies={movies.results} />
     </div>
   );
 }

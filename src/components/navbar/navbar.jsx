@@ -5,7 +5,7 @@ import NavList from "./nav-list/navlist";
 
 function Navbar() {
   return (
-    <div className="bg-zinc-900 sticky top-0 z-50 text-gray-100 h-16 px-6 md:px-20 lg:px-32 py-2 flex items-center  justify-between ">
+    <div className="bg-zinc-900 w-full sticky top-0 z-50 text-gray-100 h-16 px-6 md:px-20 lg:px-32 py-2 flex items-center  justify-between ">
       {/* Left side headings */}
       <div className="flex-1 items-center flex justify-between md:justify-start gap-x-8">
         <Menu className="cursor-pointer md:hidden" />

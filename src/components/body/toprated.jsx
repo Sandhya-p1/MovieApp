@@ -28,7 +28,7 @@ export default function TopRated() {
 
   return (
     <div>
-      <MoviesCollection title={title} movies={movies.results} />
+      <MoviesCollection title="Top Rated" movies={movies.results} />
     </div>
   );
 }

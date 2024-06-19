@@ -5,7 +5,7 @@ import Footer from "./components/body/footer";
 
 function App() {
   return (
-    <div className="h-full overflow-scroll w-screen no-scrollbar bg-gray-100 ">
+    <div className="h-full  w-full no-scrollbar bg-gray-100 ">
       <Navbar />
       <Outlet />
       <Footer />

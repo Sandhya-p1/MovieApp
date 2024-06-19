@@ -4,11 +4,11 @@ import "./index.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
-import FavouritesPage from "./pages/FavouritePage";
 import HomePage from "./pages/HomePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { MoviePage } from "./components/body/movies-collection/moviecard";
+import NavMoviesPopularPage from "./pages/NavMoviesPopularPage";
 
 const queryClient = new QueryClient();
 
@@ -22,9 +22,13 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
 
+      // {
+      //   path: "/moviespopular",
+      //   element: <MoviesPopular />,
+      // },
       {
-        path: "/favourites",
-        element: <FavouritesPage />,
+        path: "/moviespopular",
+        element: <NavMoviesPopularPage />,
       },
       {
         path: "/movie/:id",
