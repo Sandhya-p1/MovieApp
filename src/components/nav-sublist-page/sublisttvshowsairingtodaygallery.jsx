@@ -2,20 +2,21 @@ import { tmdb } from "@/assets/config/tmdb-client";
 import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import React from "react";
-import SubListMoviesCollection from "./sublistmoviescollection";
 import Typography from "../ui/typography";
-//right side of the popular  movies page of navsublist
-function SublistMoviesPopularGallery() {
+import SubListMoviesCollection from "./sublistmoviescollection";
+
+function SublistTVShowsAiringTodayGallery() {
   const { data: movies, isLoading } = useQuery({
-    queryKey: ["popularmoviesgallery"],
+    queryKey: ["airingtodaygallery"],
     queryFn: async () =>
-      tmdb.get("/movie/popular").then((res) => res.data.results),
+      tmdb.get("tv/airing_today").then((res) => res.data.results),
   });
+  console.log(movies);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">
         <Loader2 className="animate-spin" />
-        <Typography size="h3">Loading</Typography>
+        <Typography>Loading...</Typography>
       </div>
     );
   return (
@@ -25,4 +26,4 @@ function SublistMoviesPopularGallery() {
   );
 }
 
-export default SublistMoviesPopularGallery;
+export default SublistTVShowsAiringTodayGallery;

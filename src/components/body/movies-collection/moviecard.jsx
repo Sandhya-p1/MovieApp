@@ -3,7 +3,7 @@ import MoreIcon from "@/components/body/movies-collection/moreicon";
 import Typography from "@/components/ui/typography";
 import { useQuery } from "@tanstack/react-query";
 import { tmdb } from "@/assets/config/tmdb-client";
-import { Skeleton } from "@/components/ui/skeleton";
+
 import { useNavigate, useParams } from "react-router-dom";
 
 export const IMG_BASE = "https://media.themoviedb.org/t/p/w220_and_h330_face";

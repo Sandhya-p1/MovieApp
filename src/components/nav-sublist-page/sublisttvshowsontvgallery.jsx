@@ -1,21 +1,22 @@
-import { tmdb } from "@/assets/config/tmdb-client";
-import { useQuery } from "@tanstack/react-query";
-import { Loader2 } from "lucide-react";
 import React from "react";
 import SubListMoviesCollection from "./sublistmoviescollection";
+import { Loader2 } from "lucide-react";
 import Typography from "../ui/typography";
-//right side of the popular  movies page of navsublist
-function SublistMoviesPopularGallery() {
+import { useQuery } from "@tanstack/react-query";
+import { tmdb } from "@/assets/config/tmdb-client";
+
+function SublistTVShowsOnTVGallery() {
   const { data: movies, isLoading } = useQuery({
-    queryKey: ["popularmoviesgallery"],
+    queryKey: ["ontvgallery"],
     queryFn: async () =>
-      tmdb.get("/movie/popular").then((res) => res.data.results),
+      tmdb.get("tv/on_the_air").then((res) => res.data.results),
   });
+  console.log("on the tv:", movies);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">
         <Loader2 className="animate-spin" />
-        <Typography size="h3">Loading</Typography>
+        <Typography>Loading...</Typography>
       </div>
     );
   return (
@@ -25,4 +26,4 @@ function SublistMoviesPopularGallery() {
   );
 }
 
-export default SublistMoviesPopularGallery;
+export default SublistTVShowsOnTVGallery;

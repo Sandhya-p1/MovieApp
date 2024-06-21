@@ -1,37 +1,33 @@
-import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../../ui/dropdown-menu";
+import React from "react";
 import { Link } from "react-router-dom";
-
-function Movies() {
+export default function TvShows() {
   return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger className="hover:underline">
-          Movies
+          TV Shows
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <Link to="/moviespopular"> Popular</Link>
-          </DropdownMenuItem>
-
-          <DropdownMenuItem>
-            <Link to="/moviesnowplaying"> Now Playing</Link>
+            <Link to="/tvshowspopular"> Popular</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link to="/moviesupcoming"> UpComing</Link>
+            <Link to="/tvshowsairingtoday">Airing Today</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link to="/moviestoprated">Top Rated</Link>
+            <Link to="/tvshowsontv">On TV</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link to="/tvshowstoprated">Top Rated</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </>
   );
 }
-
-export default Movies;

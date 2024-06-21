@@ -9,6 +9,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { MoviePage } from "./components/body/movies-collection/moviecard";
 import NavMoviesPopularPage from "./pages/NavMoviesPopularPage";
+import NavMoviesNowPlayingPage from "./pages/NavMoviesNowPlayingPage";
+import NavMoviesUpcomingPage from "./pages/NavMoviesUpcomingPage";
+import NavMoviesTopRatedPage from "./pages/NavMoviesTopRatedPage";
+import NavTVShowsPopularPage from "./pages/NavTVShowsPopularPage";
+import NavTVShowsAiringTodayPage from "./pages/NavTVShowsAiringTodayPage";
+import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
+import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
+import NavPeoplePopularPeoplePage from "./pages/NavPeoplePopularPeoplePage";
 
 const queryClient = new QueryClient();
 
@@ -22,13 +30,42 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
 
-      // {
-      //   path: "/moviespopular",
-      //   element: <MoviesPopular />,
-      // },
       {
         path: "/moviespopular",
         element: <NavMoviesPopularPage />,
+      },
+      {
+        path: "/moviesnowplaying",
+        element: <NavMoviesNowPlayingPage />,
+      },
+      {
+        path: "/moviesupcoming",
+        element: <NavMoviesUpcomingPage />,
+      },
+      {
+        path: "/moviestoprated",
+        element: <NavMoviesTopRatedPage />,
+      },
+      {
+        path: "/tvshowspopular",
+        element: <NavTVShowsPopularPage />,
+      },
+      {
+        path: "/tvshowsairingtoday",
+        element: <NavTVShowsAiringTodayPage />,
+      },
+
+      {
+        path: "/tvshowsontv",
+        element: <NavTVShowsOnTVPage />,
+      },
+      {
+        path: "/tvshowstoprated",
+        element: <NavTVShowsTopRatedPage />,
+      },
+      {
+        path: "/peoplepopularpeople",
+        element: <NavPeoplePopularPeoplePage />,
       },
       {
         path: "/movie/:id",
