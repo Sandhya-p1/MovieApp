@@ -11,7 +11,7 @@ import Upcoming from "@/components/body/latest-trailers/latesttrailers";
 function HomePage() {
   return (
     <div>
-      <div className="mx-0 md:mx-20 space-y-4 ">
+      <div className="mx-0 md:mx-20 flex flex-col gap-y-4 ">
         <Banner />
         <TopRated />
         <Upcoming />

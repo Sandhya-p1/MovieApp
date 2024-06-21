@@ -3,7 +3,7 @@ import Typography from "../ui/typography";
 
 export default function JoinUs() {
   return (
-    <div className="w-full h-80 bg-purple-950 relative shadow-black shadow-sm ">
+    <div className="w-full  h-80 mb-12 bg-purple-950 relative shadow-black shadow-sm ">
       <img
         src="https://assets.mubicdn.net/images/notebook/post_images/36485/images-w1400.jpg?1670783534"
         className="object-cover object-center rounded-sm h-full w-full opacity-10"

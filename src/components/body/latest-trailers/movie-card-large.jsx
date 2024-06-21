@@ -3,10 +3,15 @@ import Typography from "@/components/ui/typography";
 import { Play } from "lucide-react";
 import React from "react";
 import { IMG_BASE } from "../movies-collection/moviecard";
+import { useNavigate } from "react-router-dom";
 
 export function MovieCardLarge({ movie }) {
+  const navigate = useNavigate();
   return (
-    <div className="min-w-[280px] text-white hover:scale-105 transition-all duration-150 ease-out   h-44 mt-4 rounded-xl text-center relative">
+    <div
+      onClick={() => navigate(`movie/${movie.id}`)}
+      className="min-w-[280px] text-white hover:scale-105 transition-all duration-150 ease-out   h-44 mt-4 rounded-xl text-center relative"
+    >
       <img
         src={IMG_BASE + movie?.poster_path}
         className="rounded-xl object-cover h-full w-full "

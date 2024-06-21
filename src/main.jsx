@@ -7,7 +7,7 @@ import App from "./App";
 import HomePage from "./pages/HomePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { MoviePage } from "./components/body/movies-collection/moviecard";
+
 import NavMoviesPopularPage from "./pages/NavMoviesPopularPage";
 import NavMoviesNowPlayingPage from "./pages/NavMoviesNowPlayingPage";
 import NavMoviesUpcomingPage from "./pages/NavMoviesUpcomingPage";
@@ -17,6 +17,7 @@ import NavTVShowsAiringTodayPage from "./pages/NavTVShowsAiringTodayPage";
 import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
 import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
 import NavPeoplePopularPeoplePage from "./pages/NavPeoplePopularPeoplePage";
+import MoviePageAccID from "./pages/MoviePageAccID";
 
 const queryClient = new QueryClient();
 
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/movie/:id",
-        element: <MoviePage />,
+        element: <MoviePageAccID />,
       },
     ],
   },
