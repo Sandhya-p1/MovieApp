@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
@@ -18,6 +19,7 @@ import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
 import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
 import NavPeoplePopularPeoplePage from "./pages/NavPeoplePopularPeoplePage";
 import MoviePageAccID from "./pages/MoviePageAccID";
+import useProgress from "./components/useProgress";
 
 const queryClient = new QueryClient();
 
@@ -78,9 +80,17 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ReactQueryDevtools />
-    </QueryClientProvider>
+    <Auth0Provider
+      domain="dev-3my55hfxmmlk1zn6.us.auth0.com"
+      clientId="4Z2BfVIq7WRhstNq2j83YGzxjls0VjkM"
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </Auth0Provider>
   </React.StrictMode>
 );

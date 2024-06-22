@@ -20,7 +20,7 @@ export default function MovieCard({ movie }) {
   if (!movie || !movie.poster_path) return null;
   return (
     <div
-      onClick={() => navigate(`movie/${movie.id}`)}
+      onClick={() => navigate(`/movie/${movie.id}`)}
       className="min-w-[160px] relative group hover:scale-100 scale-90  transition-all ease-out duration-200"
     >
       <img
@@ -44,14 +44,14 @@ export default function MovieCard({ movie }) {
 }
 
 // page of each movie when click on moviecard
-export const MoviePage = () => {
-  const { id } = useParams();
-  const { data, isLoading } = useMovieQuery(id);
-  if (isLoading) return "Loading...";
-  return (
-    <div>
-      <img src={IMG_BASE + data.poster_path} />
-      <h1 className="text-2xl font-bold">{data?.title}</h1>
-    </div>
-  );
-};
+// export const MoviePage = () => {
+//   const { id } = useParams();
+//   const { data, isLoading } = useMovieQuery(id);
+//   if (isLoading) return "Loading...";
+//   return (
+//     <div>
+//       <img src={IMG_BASE + data.poster_path} />
+//       <h1 className="text-2xl font-bold">{data?.title}</h1>
+//     </div>
+//   );
+// };

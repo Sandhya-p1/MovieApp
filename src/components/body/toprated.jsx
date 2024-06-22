@@ -5,11 +5,6 @@ import { tmdb } from "@/assets/config/tmdb-client";
 import { Loader2 } from "lucide-react";
 
 export default function TopRated() {
-  const title = {
-    headings: "Top Rated",
-    children: null,
-  };
-
   const { data: movies, isLoading } = useQuery({
     queryKey: ["OnTheAir"],
     queryFn: async () => tmdb.get("/tv/top_rated").then((res) => res.data),

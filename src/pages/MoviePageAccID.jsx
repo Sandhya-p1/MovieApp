@@ -8,9 +8,16 @@ import { useParams } from "react-router-dom";
 
 function MoviePageAccID() {
   const { id } = useParams();
-  const { data, isLoading } = useMovieQuery(id);
+  const { data, isLoading, isError } = useMovieQuery(id);
+  console.log(data);
   if (isLoading) return "Loading...";
-  console.log("movieswithid:", data);
+  if (isError || !data)
+    return (
+      <Typography size="h3" className="flex-1 h-full">
+        Error Loading data, Please try again
+      </Typography>
+    );
+
   return (
     <div
       key={data.id}
