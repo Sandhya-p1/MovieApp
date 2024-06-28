@@ -15,10 +15,9 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import Typography from "@/components/ui/typography";
 
 import React from "react";
-import { cn } from "@/lib/utils";
 
 const NavSublistPageLeftSide = React.memo(
-  ({ heading, sortOption, onSortChange }) => {
+  ({ heading, sortType, setSortType }) => {
     return (
       <div className="flex flex-col gap-y-3 text-black w-[20%]">
         <Typography size="2xl" className="pb-3">
@@ -34,7 +33,7 @@ const NavSublistPageLeftSide = React.memo(
                 Sort Results By
               </AccordionContent>
               <AccordionContent>
-                <Select value={sortOption} onValueChange={onSortChange}>
+                <Select value={sortType} onValueChange={setSortType}>
                   <SelectTrigger>
                     <SelectValue placeholder="Descending" />
                   </SelectTrigger>

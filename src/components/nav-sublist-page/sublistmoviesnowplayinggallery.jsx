@@ -1,16 +1,19 @@
+import { tmdb } from "@/assets/config/tmdb-client";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Loader2 } from "lucide-react";
 import Typography from "../ui/typography";
 import SubListMoviesCollection from "./sublistmoviescollection";
 import useInfiniteMovies from "@/loadmore";
-import useSortMovies from "@/sortingMovies";
+import useSortedData from "@/sortingMovies";
 
-function SublistMoviesNowPlayingGallery({ sortOption }) {
+function SublistMoviesNowPlayingGallery({ sortType }) {
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteMovies("/movie/now_playing");
 
   const movies = data?.pages.flatMap((page) => page.results) || [];
-  const sortedMovies = useSortMovies(movies, sortOption);
+  const sortedMovies = useSortedData(movies, sortType);
+  console.log("sortedmovies:", sortedMovies);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">
@@ -18,22 +21,23 @@ function SublistMoviesNowPlayingGallery({ sortOption }) {
         <Typography size="h3">Loading</Typography>
       </div>
     );
-  console.log("movies:", movies);
-  console.log("sortedMovies:", sortedMovies);
+  console.log(movies);
 
   return (
     <div className="w-[70%]">
       <SubListMoviesCollection movies={sortedMovies} />
-      {hasNextPage && (
-        <button
-          className="px-6 py-3 text-lg flex justify-center mx-auto font-semibold mt-10 rounded-md text-white bg-green-600 cursor-pointer hover:brightness-95"
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
-          {isFetchingNextPage ? "Loading more..." : "Load More"}
-        </button>
-      )}
-      <div>{isLoading && !isFetchingNextPage ? "Fetching..." : null}</div>
+      <div className="flex justify-center py-4">
+        {hasNextPage && (
+          <button
+            className="px-3 py-2 rounded-md text-white bg-blue-600 cursor-pointer hover:brightness-95"
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+          >
+            {isFetchingNextPage ? "Loading more..." : "Load More"}
+          </button>
+        )}
+      </div>
+      <div> {isLoading && !isFetchingNextPage ? "Fetching..." : null}</div>
     </div>
   );
 }
