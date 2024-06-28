@@ -5,9 +5,11 @@ import Footer from "./components/body/footer";
 
 function App() {
   return (
-    <div className="h-full  w-full no-scrollbar bg-gray-100 ">
+    <div className="flex flex-col min-h-screen bg-gray-100 ">
       <Navbar />
-      <Outlet />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

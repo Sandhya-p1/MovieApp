@@ -1,17 +1,16 @@
-import { tmdb } from "@/assets/config/tmdb-client";
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Loader2 } from "lucide-react";
 import Typography from "../ui/typography";
 import SubListMoviesCollection from "./sublistmoviescollection";
+import useInfiniteMovies from "@/loadmore";
+import useSortMovies from "@/sortingMovies";
 
-function SublistMoviesNowPlayingGallery() {
-  const { data: movies, isLoading } = useQuery({
-    queryKey: ["nowplayinggallery"],
-    queryFn: async () =>
-      tmdb.get("/movie/now_playing").then((res) => res.data.results),
-  });
-  console.log(movies);
+function SublistMoviesNowPlayingGallery({ sortOption }) {
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteMovies("/movie/now_playing");
+
+  const movies = data?.pages.flatMap((page) => page.results) || [];
+  const sortedMovies = useSortMovies(movies, sortOption);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">
@@ -19,9 +18,22 @@ function SublistMoviesNowPlayingGallery() {
         <Typography size="h3">Loading</Typography>
       </div>
     );
+  console.log("movies:", movies);
+  console.log("sortedMovies:", sortedMovies);
+
   return (
     <div className="w-[70%]">
-      <SubListMoviesCollection movies={movies} />
+      <SubListMoviesCollection movies={sortedMovies} />
+      {hasNextPage && (
+        <button
+          className="px-6 py-3 text-lg flex justify-center mx-auto font-semibold mt-10 rounded-md text-white bg-green-600 cursor-pointer hover:brightness-95"
+          onClick={() => fetchNextPage()}
+          disabled={isFetchingNextPage}
+        >
+          {isFetchingNextPage ? "Loading more..." : "Load More"}
+        </button>
+      )}
+      <div>{isLoading && !isFetchingNextPage ? "Fetching..." : null}</div>
     </div>
   );
 }

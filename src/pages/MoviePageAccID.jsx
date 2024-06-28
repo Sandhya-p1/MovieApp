@@ -21,10 +21,10 @@ function MoviePageAccID() {
   return (
     <div
       key={data.id}
-      className="flex items-start gap-x-6 w-full h-full relative "
+      className="flex items-start flex-row gap-x-6 w-full min-h-fit relative "
     >
       <div
-        className="bg-cover bg-center z-0 inset-0 absolute  "
+        className="bg-cover bg-center z-0 inset-0 absolute h-full w-full "
         style={{
           backgroundImage: `url(${IMG_BASE + data.poster_path})`,
         }}

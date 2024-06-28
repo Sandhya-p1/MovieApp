@@ -19,7 +19,7 @@ import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
 import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
 import NavPeoplePopularPeoplePage from "./pages/NavPeoplePopularPeoplePage";
 import MoviePageAccID from "./pages/MoviePageAccID";
-import useProgress from "./components/useProgress";
+import { FavoriteMoviesProvider } from "./context/favorite-movies.context";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +74,10 @@ const router = createBrowserRouter([
         path: "/movie/:id",
         element: <MoviePageAccID />,
       },
+      // {
+      //   path: "/favorites",
+      //   element: <FavoritesMovies />,
+      // },
     ],
   },
 ]);
@@ -87,10 +91,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         redirect_uri: window.location.origin,
       }}
     >
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools />
-      </QueryClientProvider>
+      <FavoriteMoviesProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </FavoriteMoviesProvider>
     </Auth0Provider>
   </React.StrictMode>
 );
