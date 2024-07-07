@@ -9,12 +9,14 @@ function FavoritesMovies() {
   const { favorites } = useFavorites();
 
   return (
-    <div className="px-7 py-5">
-      <Typography size="xl">Favorite Movies</Typography>
+    <div className="px-9 pt-6">
+      <Typography size="h3" className="mx-5 font-bold">
+        Favorite Movies
+      </Typography>
       <div className="grid grid-cols-6 gap-4">
-        {favorites.map((id) => (
-          <MovieFetched id={id} />
-        ))}
+        {favorites.map((id) => {
+          return <MovieFetched key={id} id={id} />;
+        })}
       </div>
     </div>
   );
@@ -28,7 +30,11 @@ const MovieFetched = ({ id }) => {
   if (loading) {
     return "loading..";
   }
-  if (error) return null;
+  if (error) {
+    console.log(error);
+    return null;
+  }
+  if (!data) return null;
 
   return <MovieCard movie={data} />;
 };

@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useQuery } from "@tanstack/react-query";
 import { tmdb } from "@/assets/config/tmdb-client";
 import { Loader2 } from "lucide-react";
 import MoviesCollection from "./movies-collection/moviescollection";
 
-export default function FreeToWatch() {
+export default function NowPlaying() {
   const { data: movies, isLoading } = useQuery({
-    queryKey: ["movies"],
+    queryKey: ["nowplayingmovies"],
     queryFn: async () => tmdb.get("/movie/now_playing").then((res) => res.data),
-    refetchInterval: 60 * 60 * 1000,
   });
   if (isLoading)
     return (
@@ -18,6 +17,7 @@ export default function FreeToWatch() {
         Loading....
       </h1>
     );
+
   return (
     <div>
       <MoviesCollection title="Now Playing" movies={movies.results} />

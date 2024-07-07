@@ -7,7 +7,7 @@ import { Loader2 } from "lucide-react";
 export default function TopRated() {
   const { data: movies, isLoading } = useQuery({
     queryKey: ["OnTheAir"],
-    queryFn: async () => tmdb.get("/tv/top_rated").then((res) => res.data),
+    queryFn: async () => tmdb.get("/movie/top_rated").then((res) => res.data),
     refetchInterval: 60 * 60 * 1000,
   });
 
@@ -21,7 +21,7 @@ export default function TopRated() {
 
   return (
     <div>
-      <MoviesCollection title="Top Rated" movies={movies.results} />
+      <MoviesCollection title="Movie Top Rated" movies={movies.results} />
     </div>
   );
 }

@@ -46,7 +46,7 @@ export const FavoritesProvider = ({ children }) => {
           return;
         }
         const userSnapshot = await getDoc(docRef);
-        const favorites = userSnapshot.get("favorites");
+        const favorites = userSnapshot.get("favorites") || [];
         // Check if the movie is already in the favorites list
         const isAlreadyFavorite = favorites.includes(id);
         if (isAlreadyFavorite) {
