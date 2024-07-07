@@ -5,13 +5,16 @@ import SublistMoviesNowPlayingGallery from "@/components/nav-sublist-page/sublis
 
 function NavMoviesNowPlayingPage() {
   const [sortType, setSortType] = useState("ascending");
+  const handleSort = () => {
+    setSortType(sortType);
+  };
   return (
     <div className="h-full flex gap-9  py-14 px-20 ">
       {/*leftside  */}
       <NavSublistPageLeftSide
         heading="Now Playing"
         sortType={sortType}
-        setSortType={setSortType}
+        setSortType={handleSort}
       />
       {/* rightside */}
       <SublistMoviesNowPlayingGallery sortType={sortType} />

@@ -10,7 +10,6 @@ function SublistTVShowsPopularGallery() {
     queryKey: ["tvshowspopulargallery"],
     queryFn: async () => tmdb.get("tv/popular").then((res) => res.data.results),
   });
-  console.log(movies);
   if (isLoading)
     return (
       <div>

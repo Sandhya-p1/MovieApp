@@ -10,7 +10,6 @@ export default function Popular() {
     queryKey: ["popularMovies"],
     queryFn: async () => tmdb.get("/movie/popular").then((res) => res.data),
   });
-  console.log(movies);
   if (isLoading) {
     return (
       <h1 className="flex items-center gap-x-2 text-xl px-4 py-2">

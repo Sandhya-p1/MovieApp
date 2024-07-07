@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 function MoviePageAccID() {
   const { id } = useParams();
   const { data, isLoading, isError } = useMovieQuery(id);
-  console.log(data);
   if (isLoading) return "Loading...";
   if (isError || !data)
     return (

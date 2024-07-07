@@ -15,6 +15,7 @@ const useSortedData = (movies, sortType) => {
     }
     return result;
   }, [movies, sortType]);
+
   return sortedData;
 };
 export default useSortedData;

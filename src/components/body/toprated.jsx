@@ -11,8 +11,6 @@ export default function TopRated() {
     refetchInterval: 60 * 60 * 1000,
   });
 
-  console.log(movies);
-
   if (isLoading)
     return (
       <h1 className="text-xl flex items-center gap-2 px-4 py-2">

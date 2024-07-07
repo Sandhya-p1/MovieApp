@@ -11,7 +11,6 @@ function SublistTVShowsAiringTodayGallery() {
     queryFn: async () =>
       tmdb.get("tv/airing_today").then((res) => res.data.results),
   });
-  console.log(movies);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">

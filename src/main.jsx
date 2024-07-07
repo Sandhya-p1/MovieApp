@@ -19,7 +19,10 @@ import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
 import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
 import NavPeoplePopularPeoplePage from "./pages/NavPeoplePopularPeoplePage";
 import MoviePageAccID from "./pages/MoviePageAccID";
-import { FavoriteMoviesProvider } from "./context/favorite-movies.context";
+import { AuthProvider } from "./context/authContext";
+import { FavoritesProvider } from "./context/favorite-movies.context";
+
+import FavoritesMovies from "./pages/FavoritesMovies";
 
 const queryClient = new QueryClient();
 
@@ -74,29 +77,23 @@ const router = createBrowserRouter([
         path: "/movie/:id",
         element: <MoviePageAccID />,
       },
-      // {
-      //   path: "/favorites",
-      //   element: <FavoritesMovies />,
-      // },
+      {
+        path: "/favorites",
+        element: <FavoritesMovies />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Auth0Provider
-      domain="dev-3my55hfxmmlk1zn6.us.auth0.com"
-      clientId="4Z2BfVIq7WRhstNq2j83YGzxjls0VjkM"
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
-      <FavoriteMoviesProvider>
+    <AuthProvider>
+      <FavoritesProvider>
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
           <ReactQueryDevtools />
         </QueryClientProvider>
-      </FavoriteMoviesProvider>
-    </Auth0Provider>
+      </FavoritesProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

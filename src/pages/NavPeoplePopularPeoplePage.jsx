@@ -19,7 +19,6 @@ function NavPeoplePopularPeoplePage() {
         <Typography size="h3">Loading...</Typography>
       </div>
     );
-  console.log("Popular people:", peoples);
   return (
     <div className="flex flex-col gap-5 px-24 py-7">
       <Typography size="h2" className=" w-fit p-2 font-bold">

@@ -15,7 +15,6 @@ export default function Upcoming() {
     queryFn: async () => tmdb.get("/movie/upcoming").then((res) => res.data),
     refetchInterval: 60 * 60 * 1000,
   });
-  console.log(movies);
 
   if (error) {
     return <div>Error loading data</div>;

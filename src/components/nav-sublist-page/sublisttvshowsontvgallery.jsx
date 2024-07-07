@@ -11,7 +11,6 @@ function SublistTVShowsOnTVGallery() {
     queryFn: async () =>
       tmdb.get("tv/on_the_air").then((res) => res.data.results),
   });
-  console.log("on the tv:", movies);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">

@@ -11,7 +11,6 @@ export default function FreeToWatch() {
     queryFn: async () => tmdb.get("/movie/now_playing").then((res) => res.data),
     refetchInterval: 60 * 60 * 1000,
   });
-  console.log(movies);
   if (isLoading)
     return (
       <h1 className="text-xl flex items-center gap-2 px-4 py-2">

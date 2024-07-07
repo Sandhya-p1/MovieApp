@@ -13,7 +13,6 @@ function SublistMoviesNowPlayingGallery({ sortType }) {
 
   const movies = data?.pages.flatMap((page) => page.results) || [];
   const sortedMovies = useSortedData(movies, sortType);
-  console.log("sortedmovies:", sortedMovies);
   if (isLoading)
     return (
       <div className="flex gap-x-1 items-center">
@@ -21,7 +20,6 @@ function SublistMoviesNowPlayingGallery({ sortType }) {
         <Typography size="h3">Loading</Typography>
       </div>
     );
-  console.log(movies);
 
   return (
     <div className="w-[70%]">
