@@ -22,7 +22,6 @@ export default function MovieCard({ movie }) {
   if (!movie || !movie.poster_path) return null;
 
   const isFavorite = favorites?.includes(movie.id);
-  console.log({ isFavorite });
 
   const handleFavoriteClick = async (e) => {
     e.stopPropagation();

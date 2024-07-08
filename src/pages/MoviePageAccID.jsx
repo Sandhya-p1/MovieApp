@@ -20,7 +20,7 @@ function MoviePageAccID() {
   return (
     <div
       key={data.id}
-      className="flex items-start flex-row gap-x-6 w-full min-h-fit relative "
+      className="flex items-start flex-row gap-x-6 w-full h-full relative "
     >
       <div
         className="bg-cover bg-center z-0 inset-0 absolute h-full w-full "
@@ -31,7 +31,7 @@ function MoviePageAccID() {
         <div className="absolute inset-0 bg-white/80 z-10 backdrop-blur-sm"></div>
       </div>
 
-      <div className="relative  px-16 py-8 flex items-start gap-x-7">
+      <div className="relative  px-16 py-14 flex items-start gap-x-7">
         <img
           src={IMG_BASE + data.poster_path}
           className=" rounded-lg h-1/2 hover:scale-105 transition-all duration-150 ease-linear"

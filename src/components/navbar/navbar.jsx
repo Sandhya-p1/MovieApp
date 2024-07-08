@@ -22,7 +22,7 @@ function Navbar() {
       <div className="flex-1 items-center flex justify-between md:justify-start gap-x-8">
         <Menu className="cursor-pointer md:hidden" />
         <h1
-          className="text-2xl font-bold text-green-400 cursor-pointer "
+          className="text-2xl font-bold text-emerald-500 cursor-pointer "
           onClick={() => navigateHome("/")}
         >
           CinemaNEX
@@ -34,7 +34,7 @@ function Navbar() {
       </div>
       {/* Right side headings  */}
       <div className="md:flex items-center gap-x-4 hidden">
-        <Plus className="text-white hidden md:flex" size={24} />
+        {/* <Plus className="text-white hidden md:flex" size={24} /> */}
         {user && (
           <>
             <img
@@ -60,31 +60,6 @@ function Navbar() {
           </button>
         )}
         {error && <p>{googleErrorMsg}</p>}
-        {/* {isAuthenticated && (
-          <img
-            src={user.picture}
-            className="rounded-full h-7 w-7 object-cover object-center"
-          />
-        )}
-        {isAuthenticated ? (
-          <p
-            className="text-nowrap cursor-pointer"
-            onClick={(e) =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }
-          >
-            Logout
-          </p>
-        ) : (
-          <p
-            className="text-nowrap cursor-pointer"
-            onClick={(e) => loginWithRedirect()}
-          >
-            Login
-          </p>
-        )} */}
-
-        <Search className="text-green-400 cursor-pointer mx-2 hover:text-green-500" />
       </div>
     </div>
   );
