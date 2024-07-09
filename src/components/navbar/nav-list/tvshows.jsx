@@ -21,7 +21,7 @@ export default function TvShows() {
             <Link to="/tvshowsairingtoday">Airing Today</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link to="/tvshowsontv">On TV</Link>
+            <Link to="/tvshowsontheair">On The Air</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Link to="/tvshowstoprated">Top Rated</Link>

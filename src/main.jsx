@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
@@ -9,20 +9,20 @@ import HomePage from "./pages/HomePage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import NavMoviesPopularPage from "./pages/NavMoviesPopularPage";
-import NavMoviesNowPlayingPage from "./pages/NavMoviesNowPlayingPage";
-import NavMoviesUpcomingPage from "./pages/NavMoviesUpcomingPage";
-import NavMoviesTopRatedPage from "./pages/NavMoviesTopRatedPage";
-import NavTVShowsPopularPage from "./pages/NavTVShowsPopularPage";
-import NavTVShowsAiringTodayPage from "./pages/NavTVShowsAiringTodayPage";
-import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
-import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
+import { MoviesSubListPage } from "./pages/MoviesSubListPage";
+// import NavTVShowsPopularPage from "./pages/NavTVShowsPopularPage";
+// import NavTVShowsAiringTodayPage from "./pages/";
+// import NavTVShowsOnTVPage from "./pages/NavTVShowsOnTVPage";
+// import NavTVShowsTopRatedPage from "./pages/NavTVShowsTopRatedPage";
 import NavPeoplePopularPeoplePage from "./pages/NavPeoplePopularPeoplePage";
 import MoviePageAccID from "./pages/MoviePageAccID";
 import { AuthProvider } from "./context/authContext";
 import { FavoritesProvider } from "./context/favorite-movies.context";
 
 import FavoritesMovies from "./pages/FavoritesMovies";
+import { MOVIES_QUERY_KEYS } from "./Queries/moviesquery";
+import { TvShowsSubListPage } from "./pages/TVShowsSubListPage";
+import { TV_SHOWS_QUERY } from "./Queries/tvshowsquery";
 
 const queryClient = new QueryClient();
 
@@ -38,36 +38,76 @@ const router = createBrowserRouter([
 
       {
         path: "/moviespopular",
-        element: <NavMoviesPopularPage />,
+        element: (
+          <MoviesSubListPage
+            queryKey={MOVIES_QUERY_KEYS.POPULAR}
+            heading="Popular"
+          />
+        ),
       },
       {
         path: "/moviesnowplaying",
-        element: <NavMoviesNowPlayingPage />,
+        element: (
+          <MoviesSubListPage
+            queryKey={MOVIES_QUERY_KEYS.NOW_PLAYING}
+            heading="Now Playing"
+          />
+        ),
       },
       {
         path: "/moviesupcoming",
-        element: <NavMoviesUpcomingPage />,
+        element: (
+          <MoviesSubListPage
+            queryKey={MOVIES_QUERY_KEYS.UPCOMING}
+            heading="Upcoming"
+          />
+        ),
       },
       {
         path: "/moviestoprated",
-        element: <NavMoviesTopRatedPage />,
+        element: (
+          <MoviesSubListPage
+            queryKey={MOVIES_QUERY_KEYS.TOP_RATED}
+            heading="Top Rated"
+          />
+        ),
       },
       {
         path: "/tvshowspopular",
-        element: <NavTVShowsPopularPage />,
+        element: (
+          <TvShowsSubListPage
+            queryKey={TV_SHOWS_QUERY.POPULAR}
+            heading="Popular TvShows"
+          />
+        ),
       },
       {
         path: "/tvshowsairingtoday",
-        element: <NavTVShowsAiringTodayPage />,
+        element: (
+          <TvShowsSubListPage
+            queryKey={TV_SHOWS_QUERY.AIRING_TODAY}
+            heading="Airing Today"
+          />
+        ),
       },
 
       {
-        path: "/tvshowsontv",
-        element: <NavTVShowsOnTVPage />,
+        path: "/tvshowsontheair",
+        element: (
+          <TvShowsSubListPage
+            queryKey={TV_SHOWS_QUERY.ON_THE_AIR}
+            heading="On The Air"
+          />
+        ),
       },
       {
         path: "/tvshowstoprated",
-        element: <NavTVShowsTopRatedPage />,
+        element: (
+          <TvShowsSubListPage
+            queryKey={TV_SHOWS_QUERY.TOP_RATED}
+            heading="Top Rated TVshows"
+          />
+        ),
       },
       {
         path: "/peoplepopularpeople",

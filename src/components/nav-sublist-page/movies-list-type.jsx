@@ -1,23 +1,23 @@
-import { tmdb } from "@/assets/config/tmdb-client";
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { Loader2 } from "lucide-react";
+import React from "react";
 import Typography from "../ui/typography";
 import SubListMoviesCollection from "./sublistmoviescollection";
 import useInfiniteMovies from "@/loadmore";
 import useSortedData from "@/sortingMovies";
 
-function SublistMoviesNowPlayingGallery({ sortType }) {
+export function MoviesListType({ sortType, queryKey }) {
+  console.log(queryKey);
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useInfiniteMovies("/movie/now_playing");
-
+    useInfiniteMovies(`/movie/${queryKey}`);
   const movies = data?.pages.flatMap((page) => page.results) || [];
+
   const sortedMovies = useSortedData(movies, sortType);
+
   if (isLoading)
     return (
-      <div className="flex gap-x-1 items-center">
+      <div className="flex items-center gap-x-1">
         <Loader2 className="animate-spin" />
-        <Typography size="h3">Loading</Typography>
+        <Typography>Loading...</Typography>
       </div>
     );
 
@@ -39,5 +39,3 @@ function SublistMoviesNowPlayingGallery({ sortType }) {
     </div>
   );
 }
-
-export default SublistMoviesNowPlayingGallery;

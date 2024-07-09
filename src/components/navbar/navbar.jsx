@@ -27,7 +27,9 @@ function Navbar() {
         >
           CinemaNEX
         </h1>
+
         <NavList />
+
         <p className="cursor-pointer md:hidden hover:underline  text-lg">
           Sign In
         </p>

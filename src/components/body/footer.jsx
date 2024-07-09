@@ -3,7 +3,7 @@ import Typography from "../ui/typography";
 
 export default function Footer() {
   return (
-    <div className="bg-zinc-900  text-white inset-x-0  pt-6   px-6 flex  justify-center gap-x-16">
+    <div className="bg-foreground  text-background inset-x-0  pt-6   px-6 flex  justify-center gap-x-16">
       {/* left side */}
 
       <div className="flex flex-col items-center gap-y-10">

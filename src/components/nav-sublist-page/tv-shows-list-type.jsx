@@ -5,26 +5,22 @@ import React from "react";
 import Typography from "../ui/typography";
 import SubListMoviesCollection from "./sublistmoviescollection";
 
-function SublistMoviesTopRatedGallery() {
+export const TvShowsListType = function ({ queryKey }) {
   const { data: movies, isLoading } = useQuery({
-    queryKey: ["topratedgallery"],
+    queryKey: ["tvshowspopulargallery"],
     queryFn: async () =>
-      tmdb.get("movie/top_rated").then((res) => res.data.results),
+      tmdb.get(`tv/${queryKey}`).then((res) => res.data.results),
   });
-
   if (isLoading)
     return (
-      <div className="flex gap-x-1 items-center">
+      <div>
         <Loader2 className="animate-spin" />
-        <Typography size="h3">Loading....</Typography>
+        <Typography>Loading....</Typography>
       </div>
     );
-
   return (
     <div className="w-[70%]">
       <SubListMoviesCollection movies={movies} />
     </div>
   );
-}
-
-export default SublistMoviesTopRatedGallery;
+};
