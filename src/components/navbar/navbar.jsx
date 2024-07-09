@@ -61,7 +61,7 @@ function Navbar() {
             Sign Out
           </button>
         )}
-        {error && <p>{googleErrorMsg}</p>}
+        {error && <p>Unable to login!! Please try again </p>}
       </div>
     </div>
   );

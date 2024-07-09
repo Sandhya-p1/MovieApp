@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
     });
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   const handleGoogleSignUp = async () => {
