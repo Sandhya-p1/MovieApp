@@ -70,7 +70,7 @@ export const FavoritesProvider = ({ children }) => {
         setFavorites(favorites);
       }
     } else {
-      console.log("User not authenticated");
+      alert("User not authenticated");
     }
   };
   const removeFavorite = async (id) => {
